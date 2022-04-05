@@ -1,2 +1,13 @@
-# Image_Classification_with_CNNs_and_SVMs
-A comparative analysis between Convolutional Neural Networks and Support Vector Machines for image classification
+# Image Classification using CNNs and SVMs
+
+The present repository contains a full report as well as the relevant code for a project titled *A comparative analysis between Convolutional Neural Networks and Support Vector Machines for image classification*, carried out with [Christos Nikou](https://github.com/ChrisNick92).
+
+The used dataset is called [Painter by Numbers](https://www.kaggle.com/c/painter-by-numbers/data) and corresponds to a [Kaggle competition](https://www.kaggle.com/competitions/painter-by-numbers/overview) designed for a pairwise comparison scheme in order to be applied in forgery recognition. For the purposes of our work, we used the data in order to train image classifiers able to identify 20 different artists based on digital images of their paintings. The aim of our work was to compare conventional classifiers to CNNs, as far as feature extraction and classification scores are concerned. The conventional classifiers of choice were SVMs with Gaussian (radial basis function - rbf) kernels.
+
+The code provided in the [Notebook](https://github.com/srigas/Image_Classification_with_CNNs_and_SVMs/blob/main/Notebook%20(full%20code).ipynb) is split into four parts. The first part concerns the loading of the data as well as the process of feature extraction, where raw pixels are extracted for the training of the CNNs and [HOG](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients) and [SIFT](https://en.wikipedia.org/wiki/Scale-invariant_feature_transform)-related features are extracted for the training of the SVMs. In both cases, some necessary preprocessing is performed, such as image rescaling and normalization. For the second part of the code, a basic CNN class is built from scratch using PyTorch, inheriting from nnModule. This CNN model is trained on the corresponding features and evaluated on a test set reserved only for testing purposes. The third part of the code concerns the method of Transfer Learning, where models pre-trained on different datasets (and different tasks) are loaded and re-trained on a new dataset (to perform a new task). The confusion matrix shown below corresponds to the evaluation of one such model on our test set, with an accuracy score of 81%. The final part of the code corresponds to the training of the SVMs, the accuracy of which is significantly worse, thus indicating the supremacy of CNNs on such tasks.
+
+<p align="center">
+  <img src="https://srigas.me/github/transfer_cnn_cf.jpg" />
+</p>
+
+A complete analysis of the theoretical background, methodologies and results can be seen in the [report](https://github.com/srigas/Image_Classification_with_CNNs_and_SVMs/blob/main/Project%20Report.pdf) provided within this directory.
